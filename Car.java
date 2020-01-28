@@ -16,6 +16,10 @@ class Car {
     double mpg = 26.4; //miles per gallon
 
     int numberOfPeopleInCar = 1;
+    int maxPeopleInCar = 6;
+
+    //default constructor
+    public Car() {}
 
     //constructor to give custom min and max speeds
     public Car(int customMaxSpeed, double customWeight, boolean customIsTheCarOn){
@@ -47,10 +51,24 @@ class Car {
     }
 
     public void getIn(){
-        numberOfPeopleInCar++ ;
+        if (numberOfPeopleInCar < maxPeopleInCar) 
+        {
+            numberOfPeopleInCar++ ;
+            System.out.println("Someone got in.");
+
+        }
+        else {
+            System.out.println("Car is full " + numberOfPeopleInCar + " = " + maxPeopleInCar);
+        }
     }
     public void getOut(){
-        numberOfPeopleInCar-- ;
+        if (numberOfPeopleInCar != 0 ){
+            numberOfPeopleInCar-- ;
+        } else{
+            System.out.println("No one is in the car " + numberOfPeopleInCar);
+        }
+        
+
     }
     public double howManyMilesTillOutOfGas(){
         return currentFuel * mpg;
@@ -59,39 +77,34 @@ class Car {
         return maxFuel * mpg;
     }
 
+    public void turnTheCarOn(){
+        if (!isTheCarOn) {
+        isTheCarOn = true; 
+        }
+        else { 
+            System.out.println("The car is already on. " + isTheCarOn );
+        }
+    }
+
     public static void main(String[] args) {
        
         
-       Car birthdayCar = new Car(500, 5000.545, true );
-       System.out.println("Birthday Car V1: ");
-       birthdayCar.printVariable();
+       Car tommyCar = new Car();
+       tommyCar.getOut();
+       tommyCar.getOut();
 
-        birthdayCar.getIn();
-        birthdayCar.getIn();
-        birthdayCar.getIn();
-        System.out.println("Miles Left: " + birthdayCar.howManyMilesTillOutOfGas());
-        System.out.println("Max Miles: " + birthdayCar.maxMilesPerFillUp());
-        System.out.println("Birthday Car V2: ");
-       birthdayCar.printVariable();
-       birthdayCar.getOut();
-       System.out.println("Birthday Car V3: ");
-       birthdayCar.printVariable();
+       tommyCar.getIn();
+       tommyCar.getIn();
+       tommyCar.getIn();
+       tommyCar.getIn();
+       tommyCar.getIn();
+       tommyCar.getIn();
+       tommyCar.getIn();
 
-       //System.out.println("Christmas Car: ");
-       //Car christmasCar = new Car(550, 2000, false);
-       //christmasCar.printVariable();
+       tommyCar.turnTheCarOn();
+       tommyCar.turnTheCarOn();
 
-        /* Car familyCar = new Car();
-        System.out.println("Familys's Car: ");
-        familyCar.printVariable();
        
-        //System.out.println("Alice's Car: ");
-
-        //Car aliceCar = familyCar;
-        familyCar.wreckCar();
-        familyCar.upgradeMaxSpeed();
-        //aliceCar.printVariable();
-        familyCar.printVariable();*/
 
     }
 }
