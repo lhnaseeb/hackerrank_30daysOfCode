@@ -28,6 +28,30 @@ class Car {
         isTheCarOn = customIsTheCarOn;
     }
 
+    /* Getters and Setters */
+    public int getMaxSpeed(){
+        return this.maxSpeed;
+    }
+
+    public void setMaxSpeed(int newMaxSpeed){
+        this.maxSpeed = newMaxSpeed;
+    }
+    
+    public int getMinSpeed(){
+        return this.minSpeed;
+    }
+
+    public double getWeight(){
+        return this.weight;
+    }
+
+    public char getCondition(){
+        return this.condition;
+    }
+
+    public boolean getIsCarOn(){
+        return this.isTheCarOn;
+    }
 
     public void printVariable(){
         System.out.println("This is the max speed: "+maxSpeed);
@@ -45,9 +69,9 @@ class Car {
         condition = 'C';
     }
 
+    //this function adds 10 to the current max speed
     public void upgradeMaxSpeed(){
-        minSpeed = maxSpeed;
-        maxSpeed = maxSpeed + 1;
+       setMaxSpeed(getMaxSpeed() + 10);
     }
 
     public void getIn(){
